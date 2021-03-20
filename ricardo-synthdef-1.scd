@@ -1,3 +1,5 @@
+s.quit();
+Server.killAll;
 s.boot();
 s.scope(2);
 s.quit();
@@ -36,24 +38,29 @@ SynthDef(\cafe, {
 	arg freq;
 	var oscilador, envolvente;
 	oscilador = (SinOsc.ar(freq, 0, 1));
-	envolvente = (EnvGen.kr(Env.perc(0.01, 0.3), doneAction:2));
-	Out.ar([0, 1], oscilador * envolvente * 0.7);
+	envolvente = (EnvGen.kr(Env.perc(0.01, 0.13), doneAction:2));
+	Out.ar([0, 1], oscilador * envolvente * 0.14);
 }).send(s);
 )
 
 a = Synth(\cafe, [freq: 300 ]);
 
 (
-Pdef(\hola,
+Pdef(\adios,
 	Pbind(\instrument, \cafe,
-		\freq, Pxrand([440, 220, 333, 120], inf),
-		\dur, Pxrand([0.5, 1, 0.125], inf);
+		\freq, Pseq([48, 57, 53, 52].midicps, inf),
+		\dur, Pxrand([0.5, 0.75], inf);
 	))
 );
 
-Pdef(\hola).play;
+FreeVerb
 
+CAFE
 
+Pdef(\adios).play;
+Pdef(\adios).stop;
+
+midicps
 
 
 
