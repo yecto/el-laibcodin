@@ -1,0 +1,77 @@
+
+do
+    let ataque = "0.1"
+
+setcps (108/130)
+
+d1 $ slow 1.5 $ s "bd ~ ~ ~" # gain 0.9
+
+d2 $ slow 1.5 $ rarely (slow 2)
+   $ s "~ ~ gretsch ~" # n 2 # gain "0.8"
+
+d3 $ slow 3 $ s "gretsch(3,8)" # n 4 # end "0.061"
+
+d4 $ slow 3.7 $ s "perc(9,16)" # n (irand 20)
+   # room (slow 4 $ range 0.05 0.9 saw)
+   # size (slow 6 $ range 0.5 0.97 sine)
+   # delay (slow 12 $ range 0.25 0.9 rand)
+   # delayt (slow 8 $ range 0.0125 0.75 rand)
+   # delayfeedback (slow 14 $ range 0.1 0.6 rand)
+   # speed (slow 20 $ range 1 200 rand)
+   # orbit 2 # gain "0.7"
+
+   hush
+
+hush
+
+d1 $ slow 3 $ within (0.5, 0.7) (striate 2)
+   $ s "gretsch(3,8)"
+   # n (irand 7)
+
+d2 $ slow 3 $ within (0.25, 0.5) (striate 2) $ rarely(degrade)
+    $ s "gretsch(9,16,14)" # n "19 10" # end "0.05"
+
+hush
+
+d2 $ slow 2 $ s "glitch(3,8,2)" # n 2 # attack "0.08"
+
+
+   # n (irand 10)
+   # lpf (slow 3 $ range 100 8000 sine)
+   # room (slow 4 $ range 0.05 0.9 saw)
+   # size (slow 6 $ range 0.5 0.97 sine)
+   # delay (slow 12 $ range 0.25 0.9 rand)
+   # delayt (slow 8 $ range 0.0125 0.75 rand)
+   # delayfeedback (slow 14 $ range 0.1 0.6 rand)
+   # speed (slow 20 $ range 1 200 rand)
+   # orbit 2
+
+hush
+
+d1 $ slow 4 $ s "cafe(5,8,2)" 
+   # n "c5 a5 f5 e5"
+   # attack "0.03"
+   # lpf (slow 3 $ range 100 8000 sine)
+   # room (slow 4 $ range 0.05 0.9 saw)
+   # size (slow 6 $ range 0.5 0.97 sine)
+   # delay (slow 12 $ range 0.25 0.9 rand)
+   # delayt (slow 8 $ range 0.0125 0.75 rand)
+   # delayfeedback (slow 14 $ range 0.1 0.6 rand)
+   # speed (slow 20 $ range 1 200 rand)
+   # orbit 2
+
+hush
+
+  # delay "0.5"
+  # delayt "0.125"
+  # delayfeedback "0.5"
+  # orbit "2"
+  # attack "0.05"
+  # sustain "4"
+  # room "0.6"
+  # size "0.96"
+
+  hush
+
+
+  hush
